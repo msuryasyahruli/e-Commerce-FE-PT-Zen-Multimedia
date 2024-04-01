@@ -9,7 +9,7 @@ const DetailLayout = () => {
     return (
         <>
             <Header />
-            <main className='container mx-auto my-4 px-2'>
+            <main className='container mx-auto my-4 px-2 min-h-svh'>
                 <a href='/' className='flex items-center gap-2 font-medium'>
                     <IoArrowBack />
                     <p>Back</p>

@@ -24,7 +24,7 @@ const DetailProduct = () => {
                 <div className='col-span-2 font-medium text-2xl'>
                     <div className='flex justify-between'>
                         <p className=''>{products.title}</p>
-                        <button className='bg-gray-200 text-lg min-w-40 h-fit py-2 rounded-md'>Add to cart</button>
+                        <button className='bg-gray-200 text-lg min-w-40 h-fit py-2 rounded-md hover:bg-gray-300'>Add to cart</button>
                     </div>
                     <p className='text-red-500 my-3'>${products.price}</p>
                     <p className='text-lg'>Description</p>

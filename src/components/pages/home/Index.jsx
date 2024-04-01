@@ -7,7 +7,7 @@ const HomeLayout = () => {
     return (
         <>
             <Header />
-            <main className='container mx-auto px-2'>
+            <main className='container mx-auto px-2 min-h-svh'>
                 <Card />
             </main>
             <Footer />

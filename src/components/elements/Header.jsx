@@ -17,9 +17,9 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='flex items-center justify-end gap-4'>
-                    <Link><IoNotificationsOutline className='w-8 h-8' /></Link>
-                    <Link to='/cart'><IoCartOutline className='w-8 h-8' /></Link>
-                    <Link><IoPersonCircleOutline className='w-11 h-11' /></Link>
+                    <Link><IoNotificationsOutline className='w-9 h-9 hover:bg-gray-500 rounded-full p-1' /></Link>
+                    <Link to='/cart'><IoCartOutline className='w-9 h-9 hover:bg-gray-500 rounded-full p-1' /></Link>
+                    <Link><IoPersonCircleOutline className='w-11 h-11 hover:bg-gray-500 rounded-full' /></Link>
                 </div>
             </header>
         </>

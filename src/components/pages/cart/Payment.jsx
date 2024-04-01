@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Payment = () => {
     return (
@@ -9,9 +10,12 @@ const Payment = () => {
                     <p>Total</p>
                     <p>-</p>
                 </div>
-                
                 <hr />
-                <button className='bg-gray-100 mt-4 w-full rounded-sm py-2'>Checkout</button>
+                <Link to='/cart/payment'>
+                    <button className='bg-gray-100 mt-4 w-full rounded-sm py-2 hover:bg-gray-200'>
+                        Checkout
+                    </button>
+                </Link>
             </div>
         </>
     )
