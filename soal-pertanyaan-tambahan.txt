@@ -1,0 +1,11 @@
+- Jelaskan pendekatan Anda dalam merencanakan dan mengimplementasikan proyek ini.
+Pertama dimulai dengan membuat desain UI sederhana menggunakan Figma lalu mengimplementasikan ke dalam ReactJS, setelah itu menggintegrasikannya dengan API.
+
+- Bagaimana Anda akan mengatur struktur direktori dan file untuk proyek ini?
+Mengaturnya didalam folder 'src' yang didalamnya berisi direktori komponen untuk menyipan bagian seperti header, footer, card dan bagian lainnya. Lalu ada direktori halaman untuk menyusun tata letak halaman.
+
+- Bagaimana Anda akan mengelola state aplikasi, terutama dalam hal menangani data produk dan keranjang belanja?
+Menggunakan state lokal komponen 'useState' hook untuk menyimpan informasi tentang produk yang ditampilkan pada halaman tertentu, dan agar data di dalam state lokal dapat digunakan oleh komponen lain saya menggunkan Context API.
+
+- Apa yang akan Anda lakukan jika Anda menemui masalah atau hambatan dalam mengembangkan proyek ini?
+Menganalisis masalah dengan teliti, mencari solusi di dokumentasi dan sumber daya online, dan Menguji pemecahan masalah.
