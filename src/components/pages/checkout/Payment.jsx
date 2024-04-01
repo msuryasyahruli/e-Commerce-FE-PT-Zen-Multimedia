@@ -4,7 +4,7 @@ import { CartContext } from '../cart/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
-    const { clearCart } = useContext(CartContext);
+    const { cart, clearCart } = useContext(CartContext);
     const navigate = useNavigate()
 
     const handleClick = () => {
@@ -15,6 +15,10 @@ const Payment = () => {
         });
         navigate('/')
     }
+
+    let totalPrice = cart.reduce((val, element) => {
+        return val + element.price;
+    }, 0);
 
     return (
         <>
@@ -38,7 +42,7 @@ const Payment = () => {
                 </div>
                 <div className='flex justify-between my-2'>
                     <p>Total</p>
-                    <p>-</p>
+                    <p className='text-red-500'>${totalPrice}</p>
                 </div>
                 <hr />
                 <button onClick={handleClick} className='bg-gray-100 mt-4 w-full rounded-sm py-2 hover:bg-gray-200'>

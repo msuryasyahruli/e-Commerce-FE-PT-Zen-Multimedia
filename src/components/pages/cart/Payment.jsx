@@ -12,7 +12,7 @@ const Payment = ({ product }) => {
                 <p className='font-medium text-xl'>Shopping summary</p>
                 <div className='flex justify-between my-2'>
                     <p>Total</p>
-                    <p>{totalPrice}</p>
+                    <p className='text-red-500'>${totalPrice}</p>
                 </div>
                 <hr />
                 <Link to='/cart/payment'>
