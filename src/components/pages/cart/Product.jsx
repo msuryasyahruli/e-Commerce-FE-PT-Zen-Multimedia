@@ -1,44 +1,37 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { FaMinusCircle, FaPlusCircle, FaTrash } from "react-icons/fa";
+import { CartContext } from './CartContext';
 
-const Product = ({ id }) => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        axios.get(`https://fakestoreapi.com/products/${id}`)
-            .then((res) => {
-                setProducts(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, [id])
-
-    const [quantity, setQuantity] = useState(1)
+const Product = ({ products }) => {
+    const { removeFromCart, updateQuantity } = useContext(CartContext);
 
     const handleIncrease = () => {
-        setQuantity(quantity - 1)
+        updateQuantity(products.id, products.quantity + 1)
     }
 
     const handleDecrease = () => {
-        setQuantity(quantity + 1)
+        updateQuantity(products.id, products.quantity - 1)
+    }
+
+    const handleRemove = () => {
+        removeFromCart(products.id)
     }
 
     return (
         <>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 max-md:flex-col'>
                 <img src={products.image} alt="products" className='w-32 aspect-square rounded-sm bg-white object-contain' />
                 <div className='w-full font-medium'>
                     <p>{products.title}</p>
-                    <p>${products.price * quantity}</p>
+                    <p className='text-red-500'>${products.price * products.quantity}</p>
                 </div>
                 <div className='relative'>
                     <div className='flex items-center gap-2 h-fit text-2xl'>
-                        <button onClick={handleIncrease} disabled={quantity <= 1 ? true : false} className='text-slate-400 hover:text-slate-500'><FaMinusCircle /></button>
-                        <p>{quantity}</p>
-                        <button onClick={handleDecrease} className='text-slate-700 hover:text-slate-600'><FaPlusCircle /></button>
+                        <button onClick={handleDecrease} disabled={products.quantity <= 1 ? true : false} className='text-slate-400 hover:text-slate-500'><FaMinusCircle /></button>
+                        <p>{products.quantity}</p>
+                        <button onClick={handleIncrease} className='text-slate-700 hover:text-slate-600'><FaPlusCircle /></button>
                     </div>
-                    <button className='text-xl absolute bottom-0 right-0 hover:text-red-500'><FaTrash /></button>
+                    <button className='text-xl absolute bottom-0 right-0 hover:text-red-500' onClick={() => handleRemove()}><FaTrash /></button>
                 </div>
             </div>
         </>

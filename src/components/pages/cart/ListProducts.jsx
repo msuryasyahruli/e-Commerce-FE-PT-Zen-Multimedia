@@ -1,24 +1,16 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Product from './Product'
+import { CartContext } from './CartContext';
+
 
 const ListProducts = () => {
-    const [carts, setCarts] = useState([])
-    useEffect(() => {
-        axios.get(`https://fakestoreapi.com/carts/user/1`)
-            .then((res) => {
-                setCarts(res.data[0].products)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])
+    const { cart } = useContext(CartContext);
 
     return (
         <>
-            <div className='bg-gray-300 col-span-2 rounded p-4 gap-y-4 flex flex-col'>
-                {carts.map((item, index) => (
-                    <Product key={index} id={item.productId} />
+            <div className='bg-gray-300 col-span-2 rounded p-4 gap-y-4 flex flex-col h-fit'>
+                {cart.map((item, index) => (
+                    <Product key={index} products={item} />
                 ))}
             </div>
         </>

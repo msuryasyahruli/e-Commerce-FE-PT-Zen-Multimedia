@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Swal from 'sweetalert2';
+import { CartContext } from '../cart/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
+    const { clearCart } = useContext(CartContext);
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        clearCart()
+        Swal.fire({
+            title: "Payment success",
+            icon: "success"
+        });
+        navigate('/')
+    }
+
     return (
         <>
             <div className='bg-gray-300 rounded p-4 h-fit'>
@@ -26,7 +41,7 @@ const Payment = () => {
                     <p>-</p>
                 </div>
                 <hr />
-                <button className='bg-gray-100 mt-4 w-full rounded-sm py-2 hover:bg-gray-200'>
+                <button onClick={handleClick} className='bg-gray-100 mt-4 w-full rounded-sm py-2 hover:bg-gray-200'>
                     Buy
                 </button>
             </div>

@@ -1,25 +1,13 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-const Product = ({ id }) => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        axios.get(`https://fakestoreapi.com/products/${id}`)
-            .then((res) => {
-                setProducts(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, [id])
-
+const Product = ({ products }) => {
     return (
         <>
-            <div className='flex gap-4'>
-                <img src={products.image} alt="products" className='w-32 aspect-square rounded-sm bg-white object-contain' />
+            <div className='flex gap-4 max-md:flex-col'>
+                <img src={products.image} alt="products" className='w-32 aspect-square rounded-sm bg-white object-contain max-md:aspect-video' />
                 <div className='w-full font-medium'>
                     <p>{products.title}</p>
-                    <p>${products.price}</p>
+                    <p className='text-red-500'>${products.price}</p>
                 </div>
             </div>
         </>

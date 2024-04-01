@@ -15,8 +15,8 @@ const Address = () => {
     }, []);
 
     return (
-        <div className="bg-gray-300 rounded p-4 h-fit mb-4">
-            <p className="font-medium text-xl">Address</p>
+        <div className="bg-gray-300 rounded p-4 h-fit mb-4 max-md:col-span-2">
+            <p className="font-medium text-xl mb-2">Shipping Address</p>
             <hr />
             <p>
                 {address.street}, {address.city}, {address.number}, {address.zipcode}
